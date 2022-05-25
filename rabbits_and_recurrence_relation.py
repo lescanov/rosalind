@@ -9,3 +9,16 @@ def rabbit_count(n, k):
 
 # Test function
 rabbit_count(29, 3)
+
+# Now creating a moral rabbit model, where rabbits live for m months, where m <= 20
+
+def mortal_rabbit_count(n, m):
+    fib_sequence = [1, 1]  
+    while len(fib_sequence) < n:
+        if len(fib_sequence) > m:
+            fib_sequence.append(fib_sequence[-1] + fib_sequence[-2] - fib_sequence[-m])  # This is incorrect
+        else:
+            fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence[n - 1]
+
+mortal_rabbit_count(89, 19)
